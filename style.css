@@ -6,7 +6,11 @@ html, body {
 /* Make the body a flex container */
 body {
     display: flex;
-    flex-direction: column; /* Stack items vertically */
+    flex-direction: column;
+    background-image: url("images/background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 /* Main content area takes available space */
@@ -76,6 +80,157 @@ main {
     padding: 5px;
     background-color: white;
 }
+
+
+/* Styles for the dropdown container */
+.dropdown-container {
+    display: flex;
+    justify-content: center; /* Center the dropdowns horizontally */
+    gap: 20px; /* Space between each dropdown */
+    margin: 50px auto; /* Center the container with some space from the top */
+    padding: 20px;
+    background-color: black; /* Light background for the dropdown section */
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for the container */
+    width: 80%; /* Make the dropdown container 80% of the page width */
+    max-width: 1000px; /* Limit the maximum width */
+    border: 1px solid red;
+}
+
+/* General styles for the select elements */
+select {
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid red; /* Red border to match the theme */
+    border-radius: 5px;
+    background-color: white;
+    cursor: pointer;
+    width: 200px; /* Set a fixed width */
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Focus effect for the dropdowns */
+select:focus {
+    border-color: black; /* Change border to black when focused */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+}
+
+/* Disabled dropdown styling */
+select:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+}
+
+/* Add some spacing between the dropdowns and other content */
+.dropdown-container select {
+    margin-right: 10px;
+}
+
+/*Search car button*/
+.search-btn {
+    padding: 12px 20px;
+    font-size: 16px;
+    background-color: red; /* Red to match theme */
+    color: white; /* White text for contrast */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-left: 20px; /* Add space to separate it from dropdowns */
+}
+
+/* Hover and focus effects */
+.search-btn:hover, .search-btn:focus {
+    background-color: black; /* Black on hover */
+    transform: scale(1.05); /* Slightly enlarge the button */
+}
+
+/* Disabled button styling (if needed) */
+.search-btn:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+}
+
+
+
+
+
+
+
+
+/* Category container styling */
+.category-container {
+    text-align: center;
+    margin-top: 40px;
+    padding: 40px;
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    /* Use the same width as the dropdown container */
+    width: 600px; /* Adjust width to match your select rollbar container */
+    margin: 30px auto;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+    border: 2px solid red;
+}
+
+
+/* Heading for the category section */
+.category-container h3 {
+    margin-bottom: 30px;
+    font-size: 28px; /* Larger font size */
+    color: black;
+    font-weight: bold;
+}
+
+/* Grid styling for category cards */
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 categories per row */
+    gap: 30px; /* Space between categories */
+    justify-items: center; /* Center items within the grid */
+}
+
+/* Individual category card styling */
+.category-card {
+    background-color: white;
+    border: 2px solid red;
+    border-radius: 10px;
+    width: 150px; /* Adjust width to match the rollbars */
+    height: 250px;
+    text-align: center;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+/* Add hover effect to category cards */
+.category-card:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+}
+
+/* Category card images */
+.category-card img {
+    width: 100px; /* Adjust size of the image */
+    height: 100px;
+    object-fit: cover; /* Make sure images fit well within their bounds */
+    margin-bottom: 10px;
+}
+
+/* Category card text */
+.category-card p {
+    font-size: 16px; /* Text size for the category name */
+    color: red; /* Red text to match theme */
+    font-weight: bold;
+    margin: 0;
+}
+
+
+
+
+
+
+
 
 
 

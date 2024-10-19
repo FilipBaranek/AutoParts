@@ -40,7 +40,54 @@
 </nav>
 
 <main>
+    <div class="dropdown-container">
+        <select id="brand" onchange="updateModels()">
+            <option value="">Select Car Brand</option>
+            <option value="bmw">BMW</option>
+            <option value="audi">Audi</option>
+            <option value="mercedes">Mercedes</option>
+        </select>
 
+        <select id="model" onchange="updateEngines()" disabled>
+            <option value="">Select Model</option>
+        </select>
+
+        <select id="engine" disabled>
+            <option value="">Select Engine & Year</option>
+        </select>
+
+        <button class="search-btn">Search Parts</button>
+    </div>
+
+    <div class="category-container">
+        <h3>Choose a Category</h3>
+        <div class="category-grid">
+            <div class="category-card">
+                <img src="images/engine.jpg" alt="Engine">
+                <p>Engine</p>
+            </div>
+            <div class="category-card">
+                <img src="images/steering.jpg" alt="Steering">
+                <p>Steering</p>
+            </div>
+            <div class="category-card">
+                <img src="images/brakes.jpg" alt="Brakes">
+                <p>Brakes</p>
+            </div>
+            <div class="category-card">
+                <img src="images/suspension.jpg" alt="Suspension">
+                <p>Suspension</p>
+            </div>
+            <div class="category-card">
+                <img src="images/transmission.jpg" alt="Transmission">
+                <p>Transmission</p>
+            </div>
+            <div class="category-card">
+                <img src="images/exhaust.jpg" alt="Exhaust">
+                <p>Exhaust</p>
+            </div>
+        </div>
+    </div>
 </main>
 
 <footer class="footer">
