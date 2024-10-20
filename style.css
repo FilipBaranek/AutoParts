@@ -1,393 +1,174 @@
 html, body {
-    height: 100%; /* Make sure html and body are 100% height */
-    margin: 0; /* Remove default margin */
+    height: 100%;
+    margin: 0;
 }
 
 /* Make the body a flex container */
 body {
     display: flex;
     flex-direction: column;
-    background-image: url("images/background.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
+    background-image: url('images/background.png'); /* Background image */
+    background-size: cover; /* Cover the whole area */
+    background-attachment: fixed; /* Fixed background */
 }
 
 /* Main content area takes available space */
 main {
-    flex: 1; /* Allow the main content to grow */
-}
-
-.navbar {
-    height: 100px;
-    background-color: black !important;
+    flex: 1;
 }
 
 .navbar-text {
-    font-weight: bold;
-    font-size: 40px;
-    color: red;
+    color: #dc3545; /* Red color for the navbar text */
+    font-size: 1.5rem; /* Font size for the navbar text */
+    font-weight: bold; /* Bold text for emphasis */
+    margin-left: 20px; /* Increase gap between logo and text */
 }
 
-.search-button img {
-    width: 40px;
-    height: 40px;
-}
-
+/* Adjust the search container for vertical alignment */
 .search-container {
     display: flex;
-    align-items: center;
+    align-items: center; /* Center items vertically */
+    height: 100%; /* Make the search container take full height of navbar */
+    justify-content: center; /* Center items horizontally */
+    flex-grow: 1; /* Allow search container to take up remaining space */
 }
 
-.search-input {
-    padding: 10px 100px;
-    border: 2px solid red;
+/* Input styles */
+input.form-control {
+    border: 2px solid red; /* Custom border color */
+    width: 300px; /* Make the search bar wider */
+    border-radius: 20px; /* Rounder corners */
+    margin-right: 10px; /* Space between input and button */
+}
+
+.btn-outline-light {
+    border-color: red;
     border-radius: 10px;
-    margin-right: 5px;
 }
 
-.search-button {
-    background-color: white;
-    border: 2px solid red;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-.search-input:hover {
-    background-color: #f0f0f0;
-}
-
-.search-button:hover {
-    background-color: #f0f0f0;
-}
-
-.navbar-logo img {
-    border-radius: 50%;
-    width: 70px;
-    height: 70px;
-}
-
-.nav-icons {
-    display: flex;
-    gap: 10px;
-}
-
-.btn img {
-    border-radius: 20%;
-    width: 40px;
-    height: 40px;
-    display: inline-block;
-    padding: 5px;
-    background-color: white;
-}
-
-
-/* Styles for the dropdown container */
-.dropdown-container {
-    display: flex;
-    justify-content: center; /* Center the dropdowns horizontally */
-    gap: 20px; /* Space between each dropdown */
-    margin: 50px auto; /* Center the container with some space from the top */
-    padding: 20px;
-    background-color: black; /* Light background for the dropdown section */
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for the container */
-    width: 80%; /* Make the dropdown container 80% of the page width */
-    max-width: 1000px; /* Limit the maximum width */
-    border: 1px solid red;
-}
-
-/* General styles for the select elements */
-select {
-    padding: 10px;
-    font-size: 16px;
-    border: 2px solid red; /* Red border to match the theme */
-    border-radius: 5px;
-    background-color: white;
-    cursor: pointer;
-    width: 200px; /* Set a fixed width */
-    outline: none;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Focus effect for the dropdowns */
-select:focus {
-    border-color: black; /* Change border to black when focused */
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
-}
-
-/* Disabled dropdown styling */
-select:disabled {
-    background-color: #ddd;
-    cursor: not-allowed;
-}
-
-/* Add some spacing between the dropdowns and other content */
-.dropdown-container select {
-    margin-right: 10px;
-}
-
-/*Search car button*/
-.search-btn {
-    padding: 12px 20px;
-    font-size: 16px;
-    background-color: red; /* Red to match theme */
-    color: white; /* White text for contrast */
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+/* Button styles */
+.btn-danger {
     transition: background-color 0.3s ease, transform 0.2s ease;
-    margin-left: 20px; /* Add space to separate it from dropdowns */
+    border-radius: 20px; /* Round corners for button */
 }
 
-/* Hover and focus effects */
-.search-btn:hover, .search-btn:focus {
-    background-color: black; /* Black on hover */
-    transform: scale(1.05); /* Slightly enlarge the button */
+.nav-icons a {
+    background-color: white; /* White background for the icons */
+    border-radius: 10px; /* Round corners for the background */
+    padding: 5px; /* Add padding around the icon */
+    display: inline-block; /* Make the anchor behave like a block element */
+    border-color: red;
 }
 
-/* Disabled button styling (if needed) */
-.search-btn:disabled {
-    background-color: #ddd;
-    cursor: not-allowed;
+/* Shopping cart and account icon styles */
+.nav-icons a img {
+    border-radius: 5px;
 }
-
-
-
-
-
-
 
 
 /* Category container styling */
 .category-container {
-    text-align: center;
-    margin-top: 40px;
-    padding: 40px;
-    background-color: #f1f1f1;
-    border-radius: 10px;
-    /* Use the same width as the dropdown container */
-    width: 600px; /* Adjust width to match your select rollbar container */
-    margin: 30px auto;
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
-    border: 2px solid red;
-}
-
-
-/* Heading for the category section */
-.category-container h3 {
-    margin-bottom: 30px;
-    font-size: 28px; /* Larger font size */
-    color: black;
-    font-weight: bold;
-}
-
-/* Grid styling for category cards */
-.category-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 categories per row */
-    gap: 30px; /* Space between categories */
-    justify-items: center; /* Center items within the grid */
+    background-color: #f1f1f1; /* Light background */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    border: 2px solid red; /* Border color */
+    border-radius: 20px;
+    padding: 20px; /* Add padding for category container */
 }
 
 /* Individual category card styling */
 .category-card {
-    background-color: white;
-    border: 2px solid red;
+    height: 250px; /* Fixed height for cards */
+    text-align: center; /* Center text */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition effects */
+    cursor: pointer; /* Change cursor to pointer */
+    padding: 20px; /* Add padding around category card */
+    border: 2px solid red; /* Border color */
     border-radius: 10px;
-    width: 150px; /* Adjust width to match the rollbars */
-    height: 250px;
-    text-align: center;
-    padding: 20px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
+    background-color: white; /* Background color for card */
 }
 
-/* Add hover effect to category cards */
 .category-card:hover {
-    transform: translateY(-5px); /* Slight lift on hover */
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Shadow on hover */
 }
 
 /* Category card images */
 .category-card img {
-    width: 100px; /* Adjust size of the image */
-    height: 100px;
-    object-fit: cover; /* Make sure images fit well within their bounds */
-    margin-bottom: 10px;
+    width: 100px; /* Fixed width for images */
+    height: 100px; /* Fixed height for images */
+    object-fit: cover; /* Cover image */
+    margin-bottom: 10px; /* Margin below images */
 }
 
-/* Category card text */
-.category-card p {
-    font-size: 16px; /* Text size for the category name */
-    color: red; /* Red text to match theme */
-    font-weight: bold;
-    margin: 0;
-}
-
-
-
-
-
-
-
-
-
-
-
-/* Styles for the login form */
-.login-container {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-    width: 800px;
-    margin: 150px auto;
-}
-
-.login-form {
-    display: flex;
-    flex-direction: column;
-}
-
-.login-form h2 {
-    margin-bottom: 20px;
-    text-align: center;
-    font-size: 24px;
-    color: #333;
-}
-
-.input-group {
-    margin-bottom: 15px;
-}
-
-.input-group label {
-    font-size: 14px;
-    margin-bottom: 5px;
-    color: #555;
-}
-
-.input-group input {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    outline: none;
-}
-
-.input-group input:focus {
-    border-color: red;
-    box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.3);
-}
-
-.login-btn {
-    padding: 12px;
-    font-size: 16px;
-    background-color: red;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.login-btn:hover {
-    background-color: black;
-}
-
-.signup-text {
-    margin-top: 20px;
-    font-size: 14px;
-    text-align: center;
-    color: #555;
-}
-
-.signup-text a {
-    color: #007BFF;
-    text-decoration: none;
-}
-
-.signup-text a:hover {
-    text-decoration: underline;
-}
-
-
-
-
-/* Global Footer Styles */
+/* Footer styles */
 .footer {
-    background-color: #333; /* Dark background for contrast */
-    color: #fff; /* White text for readability */
-    padding: 20px 0; /* Padding to make the footer content more comfortable */
-    width: 100%;
-    height: auto; /* Let content determine height, but keep it minimal */
-}
-
-.footer-container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto; /* Center the content */
-}
-
-.footer-row {
-    display: flex;
-    justify-content: space-between; /* Spread out the columns */
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
-    align-items: center; /* Vertically center the content */
-}
-
-.footer-column {
-    width: 45%; /* Adjust for two columns */
-}
-
-.footer-column h3 {
-    margin-bottom: 5px;
-    font-size: 12px; /* Small heading size */
-    border-bottom: 1px solid #007BFF; /* Small separator under heading */
-    padding-bottom: 5px;
-}
-
-.footer-column p,
-.footer-column ul {
-    font-size: 10px; /* Smaller font for a compact design */
-    color: #ccc;
-    line-height: 1.4;
+    background-color: #333; /* Dark background for footer */
+    color: #fff; /* White text color */
+    padding: 20px 0; /* Padding for footer */
 }
 
 .footer-links {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex; /* Display links inline */
-    gap: 15px; /* Space between links */
+    list-style: none; /* Remove default list style */
+    padding: 0; /* Remove padding */
 }
 
-.footer-links li {
-    margin: 0;
+.footer-links a {
+    color: #bbb; /* Light gray for footer links */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease; /* Transition for color change */
 }
 
-.footer-links li a {
-    font-size: 10px; /* Small size for links */
-    color: #bbb;
-    text-decoration: none;
-    transition: color 0.3s ease;
+.footer-links a:hover {
+    color: #fff; /* Change color on hover */
 }
 
-.footer-links li a:hover {
-    color: #fff; /* Color change on hover */
+/* Responsive styles for footer */
+.footer-row {
+    display: flex; /* Flex display for footer */
+    justify-content: space-between; /* Space out columns */
 }
 
-/* Footer Bottom Styles */
+/* Responsive text for the bottom footer */
 .footer-bottom {
-    text-align: center;
-    padding-top: 10px; /* Smaller padding at the top */
-    margin-top: 10px;
-    border-top: 1px solid #555; /* Separator for footer-bottom */
+    text-align: center; /* Center text in footer bottom */
+    margin-top: 1rem; /* Margin on top */
 }
 
-.footer-bottom p {
-    font-size: 10px; /* Small text size for the bottom */
-    color: #bbb;
+/* Logo styles */
+.navbar-logo img {
+    border-radius: 50%; /* Make the logo round */
 }
+
+.dropdown-container .row {
+    display: flex;
+    justify-content: space-between; /* Ensures that columns take all available space */
+}
+
+/* Center the login container vertically and horizontally */
+.login-container {
+    background-color: white; /* White background */
+    border: 2px solid red; /* Red border */
+    border-radius: 5px;
+    width: 550px;
+    padding: 30px;
+    margin: auto; /* Horizontally center */
+    position: relative;
+    top: 50%; /* Position from top */
+    transform: translateY(-50%); /* Adjust to center vertically */
+}
+
+.car-parts {
+    font-size: 12px;
+    display: flex; /* Use flexbox for alignment */
+    justify-content: center; /* Center items horizontally */
+    margin: 5px 0; /* Smaller gap between items */
+}
+
+/* Add dashes before each car part */
+.car-parts::before {
+    content: '- '; /* Adds a dash and a space */
+    margin-right: 5px; /* Space between the dash and the text */
+}
+
+
 
