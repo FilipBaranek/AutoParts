@@ -38,97 +38,94 @@
     </div>
 </nav>
 
-
 <main class="container my-5">
-    <main class="flex-grow-1">
-        <div class="container">
-            <div class="dropdown-container text-center my-4">
-                <div class="row">
-                    <div class="col">
-                        <select id="brand" class="form-select">
-                            <option value="">Vyberte značku auta</option>
-                            <option value="bmw">BMW</option>
-                            <option value="audi">Audi</option>
-                            <option value="mercedes">Mercedes</option>
-                        </select>
-                    </div>
-                    <div class="col">
-                        <select id="model" disabled class="form-select">
-                            <option value="">Model</option>
-                        </select>
-                    </div>
-                    <div class="col">
-                        <select id="engine" disabled class="form-select">
-                            <option value="">Motor a rok výroby</option>
-                        </select>
-                    </div>
-                    <div class="col text-end"> <!-- Changed from class="col" to class="col text-end" -->
-                        <button class="btn btn-danger">Vybrať auto</button>
-                    </div>
+    <div class="container">
+        <div class="dropdown-container text-center my-4">
+            <div class="row">
+                <div class="col">
+                    <select id="brand" class="form-select">
+                        <option value="">Vyberte značku auta</option>
+                        <option value="bmw">BMW</option>
+                        <option value="audi">Audi</option>
+                        <option value="mercedes">Mercedes</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <select id="model" disabled class="form-select">
+                        <option value="">Model</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <select id="engine" disabled class="form-select">
+                        <option value="">Motor a rok výroby</option>
+                    </select>
+                </div>
+                <div class="col text-end">
+                    <button class="btn btn-danger">Vybrať auto</button>
                 </div>
             </div>
+        </div>
 
-            <div class="category-container text-center my-4">
-                <h3 class="mb-4">Vyberte si kategóriu</h3>
-                <div class="row row-cols-1 row-cols-md-3 g-4">
-                    <div class="col">
-                        <div class="category-card">
-                            <img src="images/categories/engine.png" alt="Engine" class="img-fluid" />
-                            <p class="text-danger fw-bold">Motor</p>
-                            <p class="car-parts">Remene</p>
-                            <p class="car-parts">Tesnenia</p>
-                            <p class="car-parts">Rozvodová sada...</p>
-                        </div>
+        <div class="category-container text-center my-4">
+            <h3 class="mb-4">Vyberte si kategóriu</h3>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col">
+                    <div class="category-card">
+                        <img src="images/categories/engine.png" alt="Engine" class="img-fluid" />
+                        <p class="text-danger fw-bold">Motor</p>
+                        <p class="car-parts">Remene</p>
+                        <p class="car-parts">Tesnenia</p>
+                        <p class="car-parts">Rozvodová sada...</p>
                     </div>
-                    <div class="col">
-                        <div class="category-card">
-                            <img src="images/categories/steering.png" alt="Steering" class="img-fluid" />
-                            <p class="text-danger fw-bold">Riadenie</p>
-                            <p class="car-parts">Čapy riadenia</p>
-                            <p class="car-parts">Tyčky riadenia</p>
-                            <p class="car-parts">Manžeta...</p>
-                        </div>
+                </div>
+                <div class="col">
+                    <div class="category-card">
+                        <img src="images/categories/steering.png" alt="Steering" class="img-fluid" />
+                        <p class="text-danger fw-bold">Riadenie</p>
+                        <p class="car-parts">Čapy riadenia</p>
+                        <p class="car-parts">Tyčky riadenia</p>
+                        <p class="car-parts">Manžeta...</p>
                     </div>
-                    <div class="col">
-                        <div class="category-card">
-                            <img src="images/categories/brakes.png" alt="Brakes" class="img-fluid" />
-                            <p class="text-danger fw-bold">Brzdy</p>
-                            <p class="car-parts">Brzdový kotúč</p>
-                            <p class="car-parts">Brzdové platiničky</p>
-                            <p class="car-parts">Brzdové hadice...</p>
-                        </div>
+                </div>
+                <div class="col">
+                    <div class="category-card">
+                        <img src="images/categories/brakes.png" alt="Brakes" class="img-fluid" />
+                        <p class="text-danger fw-bold">Brzdy</p>
+                        <p class="car-parts">Brzdový kotúč</p>
+                        <p class="car-parts">Brzdové platiničky</p>
+                        <p class="car-parts">Brzdové hadice...</p>
                     </div>
-                    <div class="col">
-                        <div class="category-card">
-                            <img src="images/categories/suspension.png" alt="Suspension" class="img-fluid" />
-                            <p class="text-danger fw-bold">Podvozok</p>
-                            <p class="car-parts">Ložisko</p>
-                            <p class="car-parts">Rameno</p>
-                            <p class="car-parts">Silentblok...</p>
-                        </div>
+                </div>
+                <div class="col">
+                    <div class="category-card">
+                        <img src="images/categories/suspension.png" alt="Suspension" class="img-fluid" />
+                        <p class="text-danger fw-bold">Podvozok</p>
+                        <p class="car-parts">Ložisko</p>
+                        <p class="car-parts">Rameno</p>
+                        <p class="car-parts">Silentblok...</p>
                     </div>
-                    <div class="col">
-                        <div class="category-card">
-                            <img src="images/categories/clutch.png" alt="Clutch" class="img-fluid" />
-                            <p class="text-danger fw-bold">Spojka</p>
-                            <p class="car-parts">Spojková sada</p>
-                            <p class="car-parts">Zotrvačník</p>
-                            <p class="car-parts">Lamela...</p>
-                        </div>
+                </div>
+                <div class="col">
+                    <div class="category-card">
+                        <img src="images/categories/clutch.png" alt="Clutch" class="img-fluid" />
+                        <p class="text-danger fw-bold">Spojka</p>
+                        <p class="car-parts">Spojková sada</p>
+                        <p class="car-parts">Zotrvačník</p>
+                        <p class="car-parts">Lamela...</p>
                     </div>
-                    <div class="col">
-                        <div class="category-card">
-                            <img src="images/categories/exhaust.png" alt="Exhaust" class="img-fluid" />
-                            <p class="text-danger fw-bold">Výfuk</p>
-                            <p class="car-parts">Spóna</p>
-                            <p class="car-parts">Držiak</p>
-                            <p class="car-parts">Tlmič...</p>
-                        </div>
+                </div>
+                <div class="col">
+                    <div class="category-card">
+                        <img src="images/categories/exhaust.png" alt="Exhaust" class="img-fluid" />
+                        <p class="text-danger fw-bold">Výfuk</p>
+                        <p class="car-parts">Spóna</p>
+                        <p class="car-parts">Držiak</p>
+                        <p class="car-parts">Tlmič...</p>
                     </div>
                 </div>
             </div>
         </div>
-    </main>
+    </div>
 </main>
 
 <footer class="footer bg-dark text-light py-4">
