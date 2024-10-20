@@ -1,173 +1,153 @@
+/*Rozloženie stránky*/
 html, body {
     height: 100%;
     margin: 0;
 }
 
-/* Make the body a flex container */
 body {
     display: flex;
     flex-direction: column;
-    background-image: url('images/background.png'); /* Background image */
-    background-size: cover; /* Cover the whole area */
-    background-attachment: fixed; /* Fixed background */
+    background-image: url('images/background.png');
+    background-size: cover;
+    background-attachment: fixed;
 }
 
-/* Main content area takes available space */
 main {
     flex: 1;
 }
+/*-------------------*/
+
+
+.navbar-logo img {
+    border-radius: 50%;
+}
 
 .navbar-text {
-    color: #dc3545; /* Red color for the navbar text */
-    font-size: 1.5rem; /* Font size for the navbar text */
-    font-weight: bold; /* Bold text for emphasis */
-    margin-left: 20px; /* Increase gap between logo and text */
+    color: #dc3545;
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 20px;
 }
 
-/* Adjust the search container for vertical alignment */
+/*Search container*/
 .search-container {
     display: flex;
-    align-items: center; /* Center items vertically */
-    height: 100%; /* Make the search container take full height of navbar */
-    justify-content: center; /* Center items horizontally */
-    flex-grow: 1; /* Allow search container to take up remaining space */
+    align-items: center;
+    height: 100%;
+    justify-content: center;
+    flex-grow: 1;
 }
 
-/* Input styles */
+/*Searchbar*/
 input.form-control {
-    border: 2px solid red; /* Custom border color */
-    width: 300px; /* Make the search bar wider */
-    border-radius: 20px; /* Rounder corners */
-    margin-right: 10px; /* Space between input and button */
+    border: 2px solid red;
+    width: 300px;
+    border-radius: 20px;
+    margin-right: 10px;
 }
 
+/*Vyhľadať button*/
 .btn-outline-light {
     border-color: red;
     border-radius: 10px;
 }
 
-/* Button styles */
+/*Prihlásiť sa button*/
 .btn-danger {
     transition: background-color 0.3s ease, transform 0.2s ease;
-    border-radius: 20px; /* Round corners for button */
+    border-radius: 20px;
 }
 
 .nav-icons a {
-    background-color: white; /* White background for the icons */
-    border-radius: 10px; /* Round corners for the background */
-    padding: 5px; /* Add padding around the icon */
-    display: inline-block; /* Make the anchor behave like a block element */
+    background-color: white;
+    border-radius: 10px;
+    padding: 5px;
+    display: inline-block;
     border-color: red;
 }
 
-/* Shopping cart and account icon styles */
 .nav-icons a img {
     border-radius: 5px;
 }
 
-
-/* Category container styling */
 .category-container {
-    background-color: #f1f1f1; /* Light background */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Shadow effect */
-    border: 2px solid red; /* Border color */
+    background-color: #f1f1f1;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    border: 2px solid red;
     border-radius: 20px;
-    padding: 20px; /* Add padding for category container */
+    padding: 20px;
 }
 
-/* Individual category card styling */
 .category-card {
-    height: 250px; /* Fixed height for cards */
-    text-align: center; /* Center text */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition effects */
-    cursor: pointer; /* Change cursor to pointer */
-    padding: 20px; /* Add padding around category card */
-    border: 2px solid red; /* Border color */
+    height: 250px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    padding: 20px;
+    border: 2px solid red;
     border-radius: 10px;
-    background-color: white; /* Background color for card */
+    background-color: white;
 }
 
 .category-card:hover {
-    transform: translateY(-5px); /* Lift effect on hover */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Shadow on hover */
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-/* Category card images */
 .category-card img {
-    width: 100px; /* Fixed width for images */
-    height: 100px; /* Fixed height for images */
-    object-fit: cover; /* Cover image */
-    margin-bottom: 10px; /* Margin below images */
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-bottom: 10px;
 }
 
-/* Footer styles */
 .footer {
-    background-color: #333; /* Dark background for footer */
-    color: #fff; /* White text color */
-    padding: 20px 0; /* Padding for footer */
-}
-
-.footer-links {
-    list-style: none; /* Remove default list style */
-    padding: 0; /* Remove padding */
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
 }
 
 .footer-links a {
-    color: #bbb; /* Light gray for footer links */
-    text-decoration: none; /* Remove underline */
-    transition: color 0.3s ease; /* Transition for color change */
+    text-decoration: none;
 }
 
-.footer-links a:hover {
-    color: #fff; /* Change color on hover */
-}
-
-/* Responsive styles for footer */
 .footer-row {
-    display: flex; /* Flex display for footer */
-    justify-content: space-between; /* Space out columns */
+    display: flex;
+    justify-content: space-between;
 }
 
-/* Responsive text for the bottom footer */
 .footer-bottom {
-    text-align: center; /* Center text in footer bottom */
-    margin-top: 1rem; /* Margin on top */
-}
-
-/* Logo styles */
-.navbar-logo img {
-    border-radius: 50%; /* Make the logo round */
+    text-align: center;
+    margin-top: 1rem;
 }
 
 .dropdown-container .row {
     display: flex;
-    justify-content: space-between; /* Ensures that columns take all available space */
+    justify-content: space-between;
 }
 
-/* Center the login container vertically and horizontally */
 .login-container {
-    background-color: white; /* White background */
-    border: 2px solid red; /* Red border */
+    background-color: white;
+    border: 2px solid red;
     border-radius: 5px;
     width: 550px;
     padding: 30px;
-    margin: auto; /* Horizontally center */
+    margin: auto;
     position: relative;
-    top: 50%; /* Position from top */
-    transform: translateY(-50%); /* Adjust to center vertically */
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .car-parts {
     font-size: 12px;
-    display: flex; /* Use flexbox for alignment */
-    justify-content: center; /* Center items horizontally */
-    margin: 5px 0; /* Smaller gap between items */
+    display: flex;
+    justify-content: center;
+    margin: 5px 0;
 }
 
-/* Add dashes before each car part */
 .car-parts::before {
-    content: '- '; /* Adds a dash and a space */
-    margin-right: 5px; /* Space between the dash and the text */
+    content: '- ';
+    margin-right: 5px;
 }
 
 
