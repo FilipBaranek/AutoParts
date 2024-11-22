@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"  # Port for your web app
+    environment:
+      - MYSQL_HOST=mysql
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=rootpassword
+      - MYSQL_DATABASE=autopartsdb
+    depends_on:
+      - mysql
+    volumes:
+      - ./src/views:/app/view  # Mount the views directory (HTML files)
+      - ./src/public/styles:/app/styles  # Mount the CSS directory
+      - ./src/views/images:/app/images  # Mount the images directory
+
+  mysql:
+    image: mysql:8
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: autopartsdb
+      MYSQL_PASSWORD: rootpassword
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    environment:
+      PMA_HOST: mysql
+      MYSQL_ROOT_PASSWORD: rootpassword
+    ports:
+      - "8080:80"  # Expose port 8080 for phpMyAdmin
