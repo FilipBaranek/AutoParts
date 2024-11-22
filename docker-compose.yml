@@ -15,9 +15,9 @@ services:
     depends_on:
       - mysql
     volumes:
-      - ./src/views:/app/view  # Mount the views directory (HTML files)
-      - ./src/public/styles:/app/styles  # Mount the CSS directory
-      - ./src/views/images:/app/images  # Mount the images directory
+      - ./src/views:/app/src/views          # Mount views correctly for HTML files
+      - ./src/public/styles:/app/src/public/styles  # Mount CSS files to the correct static folder
+      - ./src/views/images:/app/src/views/images  # Mount images folder correctly
 
   mysql:
     image: mysql:8
