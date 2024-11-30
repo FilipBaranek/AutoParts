@@ -1,0 +1,57 @@
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - MYSQL_HOST=mysql
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=rootpassword
+      - MYSQL_DATABASE=autopartsdb
+      - JWT_SECRET=cw354SA64f66G4SSDSDASDAsd/()!adaf4we6r
+      - JWT_EXPIRES=3h
+      - COOKIE_EXPIRES=3
+    depends_on:
+      mysql:
+        condition: service_healthy
+    volumes:
+      - ./src:/app/src
+    networks:
+      - autoparts_network
+
+  mysql:
+    image: mysql:8
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: autopartsdb
+      MYSQL_PASSWORD: rootpassword
+    volumes:
+      - ./src/sql/autopartsdb.sql:/docker-entrypoint-initdb.d/autopartsdb.sql
+    ports:
+      - "127.0.0.1:3306:3306"
+    networks:
+      - autoparts_network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 5s
+      timeout: 5s
+      retries: 3
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    environment:
+      PMA_HOST: mysql
+      MYSQL_ROOT_PASSWORD: rootpassword
+    ports:
+      - "8080:80"
+    networks:
+      - autoparts_network
+
+networks:
+  autoparts_network:
+    driver: bridge
