@@ -6,7 +6,7 @@ const login = async (req, res) => {
     const { email, password } = req.body;
     if (!email || !password)
     {
-        return res.json({ status: "error", error: "Zadajte meno a heslo" });
+        return res.json({ status: "error", error: "Zadajte e-mail a heslo" });
     }
     else 
     {

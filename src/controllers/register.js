@@ -5,23 +5,23 @@ const register = async (req, res) => {
     const { username, email, password: Npassword, confirmPassword } = req.body;
 
     if (!username || !email || !Npassword || !confirmPassword) {
-        return res.json({ status: "error", error: "Zadaj svoje meno a heslo a potvrď ho." });
+        return res.json({ status: "error", error: "Zadaj svoje meno a heslo a potvrď ho" });
     }
 
     if (Npassword !== confirmPassword) {
-        return res.json({ status: "error", error: "Heslá sa nezhodujú." });
+        return res.json({ status: "error", error: "Heslá sa nezhodujú" });
     }
 
     const passwordPattern = /.{8,}/;
     if (!passwordPattern.test(Npassword))
     {
-        return res.json({ status: "error", error: "Príliš slabé heslo, zadajte aspoň 8 charakterov" });
+        return res.json({ status: "error", error: "Heslo musí obsahovať aspoň 8 znakov" });
     }
 
     const emailPattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
     if (!emailPattern.test(email))
     {
-        return res.json({ status: "error", error: "Nesprávne zadaný e-mail" });
+        return res.json({ status: "error", error: "Neplatný e-mail" });
     }
 
     const usernamePattern = /^[A-Za-z]+$/;
@@ -32,7 +32,7 @@ const register = async (req, res) => {
 
     database.query('SELECT email FROM users WHERE email = ?', [email], async (err, result) => {
         if (err) {
-            return res.json({ status: "error", error: "Chyba na strane servera." });
+            return res.json({ status: "error", error: "Chyba na strane servera" });
         }
 
         if (result[0]) {

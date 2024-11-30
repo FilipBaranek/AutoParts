@@ -5,11 +5,11 @@ const changepassword = async (req, res) => {
     const { oldpassword, newpassword: Npassword, newpasswordConfirm } = req.body;
 
     if (!oldpassword || !Npassword || !newpasswordConfirm) {
-        return res.json({ status: "error", error: "Zadaj svoje staré heslo, nové heslo a potvrď ho." });
+        return res.json({ status: "error", error: "Zadaj svoje staré heslo, nové heslo a potvrď ho" });
     }
 
     if (Npassword !== newpasswordConfirm) {
-        return res.json({ status: "error", error: "Nové heslo sa nezhoduje." });
+        return res.json({ status: "error", error: "Heslá sa nezhodujú" });
     }
 
     const passwordPattern = /.{8,}/;
