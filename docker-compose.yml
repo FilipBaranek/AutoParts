@@ -19,8 +19,6 @@ services:
         condition: service_healthy
     volumes:
       - ./src:/app/src
-    networks:
-      - autoparts_network
 
   mysql:
     image: mysql:8
@@ -33,8 +31,6 @@ services:
       - ./src/sql/autopartsdb.sql:/docker-entrypoint-initdb.d/autopartsdb.sql
     ports:
       - "127.0.0.1:3306:3306"
-    networks:
-      - autoparts_network
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       interval: 5s
@@ -49,9 +45,3 @@ services:
       MYSQL_ROOT_PASSWORD: rootpassword
     ports:
       - "8080:80"
-    networks:
-      - autoparts_network
-
-networks:
-  autoparts_network:
-    driver: bridge
