@@ -6,14 +6,7 @@ const router = express.Router();
 router.use(loggedIn);
 
 router.get('/', (req, res) => {
-    if (req.user)
-    {
-        res.render("index", {status: "loggedIn", user: req.user});
-    }
-    else
-    {
-        res.render("index", {status: "loggedOut", user: "non"});
-    }
+    res.sendFile("index.html", { root: "./src/views" });
 });
   
 router.get('/login', (req, res) => {
@@ -76,6 +69,11 @@ router.get('/category', (req, res) => {
     res.sendFile("category.html", { root: "./src/views" });
 });
 
+router.get('/parts', (req, res) => {
+    res.sendFile("parts.html", { root: "./src/views" });
+});
+
 router.get("/logout", logout);
+
 
 module.exports = router;

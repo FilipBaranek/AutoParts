@@ -1,5 +1,6 @@
 const database = require("../routes/database-config");
 const bcrypt = require("bcryptjs");
+const validator = require('validator');
 
 const register = async (req, res) => {
     const { username, email, password: Npassword, confirmPassword } = req.body;
@@ -18,8 +19,7 @@ const register = async (req, res) => {
         return res.json({ status: "error", error: "Heslo musí obsahovať aspoň 8 znakov" });
     }
 
-    const emailPattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
-    if (!emailPattern.test(email))
+    if (validator.isEmail(email))
     {
         return res.json({ status: "error", error: "Neplatný e-mail" });
     }

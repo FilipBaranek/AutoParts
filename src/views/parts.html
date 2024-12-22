@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoParts Hub - Product List</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link href="/styles/style.css" rel="stylesheet">
+</head>
+<body>
+
+    <div id="navbar-container"></div>
+
+    <main class="container my-5">
+        <h1 id="part-subcategory" class="text-center mb-4 fw-bold text-danger"></h1>
+
+        <div class="row mb-4">
+            <div class="col-md-3">
+                <label for="filterPrice" class="form-label fw-bold text-danger">Nastaviť maximálnu cenu:</label>
+                <input type="range" class="form-range" id="filterPrice" min="0" max="1000" step="50" value="500">
+                <p class="text-white">Maximálna cena: <span id="price">500</span> €</p>
+            </div>
+            <div class="col-md-3">
+                <label for="sortSelect" class="form-label fw-bold text-danger">Zoradiť podľa ceny:</label>
+                <select class="form-select" id="sortSelect">
+                    <option>...</option>
+                    <option value="priceLow">Od najlacnejšieho</option>
+                    <option value="priceHigh">Od najdrahšieho</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label for="availabilitySelect" class="form-label fw-bold text-danger">Filtrovať podľa dostupnosti:</label>
+                <select class="form-select" id="availabilitySelect">
+                    <option>..</option>
+                    <option value="inStock">Na sklade</option>
+                    <option value="order">Na objednávku</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label for="brandSelect" class="form-label fw-bold text-danger">Filtrovať podľa značky:</label>
+                <select class="form-select" id="brandSelect">
+                    <option value="0">Všetky</option>
+                </select>
+            </div>
+        </div>
+
+
+        <div class="part-container">
+            <div class="part-card d-flex align-items-center mb-4" id="div1" style="display: none !important;">
+                <img id="img1" class="img-thumbnail" style="width: 150px; height: 150px; margin-right: 20px;">
+                <div style="flex: 2; text-align: left;">
+                    <h5 id="h5-1"></h5>
+                    <p id="p1_1" class="text-muted"></p>
+                    <p id="p1_2" class="fw-bold text-danger"></p>
+                </div>
+                <div style="flex: 3; text-align: center;">
+                    <p id="description1" class="fw-normal"></p>
+                </div>
+                <div class="rating-container">
+                    <div style="position: relative; margin-left: 15px; width: 150px; height: 30px; overflow: hidden;">
+                        <img id="empty-rating" src="/images/rating/rating-empty.png" alt="Rating" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain;">
+                        <img id="rating1" src="/images/rating/rating-full.png" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+                    <p id="rating-percentage1" class="fw-bold"></p>
+                    <p id="rating-count1" class="text-muted"></p>
+                    <button class="btn btn-danger">Pridať do košíka</button>
+                </div>             
+            </div>                           
+            <div class="part-card d-flex align-items-center mb-4" id="div2" style="display: none !important;">
+                <img id="img2" class="img-thumbnail" style="width: 150px; height: 150px; margin-right: 20px;">
+                <div style="flex: 2; text-align: left;">
+                    <h5 id="h5-2"></h5>
+                    <p id="p2_1" class="text-muted"></p>
+                    <p id="p2_2" class="fw-bold text-danger"></p>
+                </div>
+                <div style="flex: 3; text-align: center;">
+                    <p id="description2" class="fw-normal"></p>
+                </div>
+                <div class="rating-container">
+                    <div style="position: relative; margin-left: 15px; width: 150px; height: 30px; overflow: hidden;">
+                        <img src="/images/rating/rating-empty.png" alt="Rating" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain;">
+                        <img id="rating2" src="/images/rating/rating-full.png" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+                    <p id="rating-percentage2" class="fw-bold"></p>
+                    <p id="rating-count2" class="text-muted"></p>
+                    <button class="btn btn-danger">Pridať do košíka</button>
+                </div>             
+            </div> 
+            <div class="part-card d-flex align-items-center mb-4" id="div3" style="display: none !important;">
+                <img id="img3" class="img-thumbnail" style="width: 150px; height: 150px; margin-right: 20px;">
+                <div style="flex: 2; text-align: left;">
+                    <h5 id="h5-3"></h5>
+                    <p id="p3_1" class="text-muted"></p>
+                    <p id="p3_2" class="fw-bold text-danger"></p>
+                </div>
+                <div style="flex: 3; text-align: center;">
+                    <p id="description3" class="fw-normal"></p>
+                </div>
+                <div class="rating-container">
+                    <div style="position: relative; margin-left: 15px; width: 150px; height: 30px; overflow: hidden;">
+                        <img src="/images/rating/rating-empty.png" alt="Rating" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain;">
+                        <img id="rating3" src="/images/rating/rating-full.png" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+                    <p id="rating-percentage3" class="fw-bold"></p>
+                    <p id="rating-count3" class="text-muted"></p>
+                    <button class="btn btn-danger">Pridať do košíka</button>
+                </div>             
+            </div> 
+            <div class="part-card d-flex align-items-center mb-4" id="div4" style="display: none !important;">
+                <img id="img4" class="img-thumbnail" style="width: 150px; height: 150px; margin-right: 20px;">
+                <div style="flex: 2; text-align: left;">
+                    <h5 id="h5-4"></h5>
+                    <p id="p4_1" class="text-muted"></p>
+                    <p id="p4_2" class="fw-bold text-danger"></p>
+                </div>
+                <div style="flex: 3; text-align: center;">
+                    <p id="description4" class="fw-normal"></p>
+                </div>
+                <div class="rating-container">
+                    <div style="position: relative; margin-left: 15px; width: 150px; height: 30px; overflow: hidden;">
+                        <img src="/images/rating/rating-empty.png" alt="Rating" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain;">
+                        <img id="rating4" src="/images/rating/rating-full.png" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+                    <p id="rating-percentage4" class="fw-bold"></p>
+                    <p id="rating-count4" class="text-muted"></p>
+                    <button class="btn btn-danger">Pridať do košíka</button>
+                </div>             
+            </div> 
+            <div class="part-card d-flex align-items-center mb-4" id="div5" style="display: none !important;">
+                <img id="img5" class="img-thumbnail" style="width: 150px; height: 150px; margin-right: 20px;">
+                <div style="flex: 2; text-align: left;">
+                    <h5 id="h5-1"></h5>
+                    <p id="p5_1" class="text-muted"></p>
+                    <p id="p5_2" class="fw-bold text-danger"></p>
+                </div>
+                <div style="flex: 3; text-align: center;">
+                    <p id="description5" class="fw-normal"></p>
+                </div>
+                <div class="rating-container">
+                    <div style="position: relative; margin-left: 15px; width: 150px; height: 30px; overflow: hidden;">
+                        <img src="/images/rating/rating-empty.png" alt="Rating" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain;">
+                        <img id="rating5" src="/images/rating/rating-full.png" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+                    <p id="rating-percentage5" class="fw-bold"></p>
+                    <p id="rating-count5" class="text-muted"></p>
+                    <button class="btn btn-danger">Pridať do košíka</button>
+                </div>             
+            </div> 
+            <div class="part-card d-flex align-items-center mb-4" id="div6" style="display: none !important;">
+                <img id="img6" class="img-thumbnail" style="width: 150px; height: 150px; margin-right: 20px;">
+                <div style="flex: 2; text-align: left;">
+                    <h5 id="h5-6"></h5>
+                    <p id="p6_1" class="text-muted"></p>
+                    <p id="p6_2" class="fw-bold text-danger"></p>
+                </div>
+                <div style="flex: 3; text-align: center;">
+                    <p id="description6" class="fw-normal"></p>
+                </div>
+                <div class="rating-container">
+                    <div style="position: relative; margin-left: 15px; width: 150px; height: 30px; overflow: hidden;">
+                        <img src="/images/rating/rating-empty.png" alt="Rating" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain;">
+                        <img id="rating6" src="/images/rating/rating-full.png" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+                    <p id="rating-percentage6" class="fw-bold"></p>
+                    <p id="rating-count6" class="text-muted"></p>
+                    <button class="btn btn-danger">Pridať do košíka</button>
+                </div>             
+            </div> 
+            <div class="part-card d-flex align-items-center mb-4" id="div7" style="display: none !important;">
+                <img id="img7" class="img-thumbnail" style="width: 150px; height: 150px; margin-right: 20px;">
+                <div style="flex: 2; text-align: left;">
+                    <h5 id="h5-7"></h5>
+                    <p id="p7_1" class="text-muted"></p>
+                    <p id="p7_2" class="fw-bold text-danger"></p>
+                </div>
+                <div style="flex: 3; text-align: center;">
+                    <p id="description7" class="fw-normal"></p>
+                </div>
+                <div class="rating-container">
+                    <div style="position: relative; margin-left: 15px; width: 150px; height: 30px; overflow: hidden;">
+                        <img src="/images/rating/rating-empty.png" alt="Rating" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain;">
+                        <img id="rating7" src="/images/rating/rating-full.png" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+                    <p id="rating-percentage7" class="fw-bold"></p>
+                    <p id="rating-count7" class="text-muted"></p>
+                    <button class="btn btn-danger">Pridať do košíka</button>
+                </div>             
+            </div> 
+        </div>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="/js/includes.js"></script>
+    <script src="/js/parts.js"></script>
+
+</body>
+</html>

@@ -15,18 +15,27 @@ document.addEventListener('DOMContentLoaded', () => {
         })
             .then(res => res.json())
             .then(data => {
-                sessionStorage.removeItem('partCategory');
-
                 let index = 1;
                 data.forEach(part => {
-                    document.getElementById(index.toString()).querySelector('img').src = part.image;
-                    document.getElementById(index.toString()).querySelector('img').alt = part.partname;
-                    document.getElementById(index.toString()).querySelector('p').textContent = part.partname;
+                    const cat = document.getElementById(index.toString());
+                    cat.querySelector('img').src = part.image;
+                    cat.querySelector('img').alt = part.partname;
+                    cat.querySelector('p').textContent = part.partname;
                     index++;
                 });
             })
             .catch(err => {
                 console.error('Error fetching data', err);
             })
+        sessionStorage.removeItem('partCategory');
     }
 });
+
+for (let i = 1; i < 7; i++)
+{
+    const part = document.getElementById(i.toString());
+    part.addEventListener('click', () => {
+        sessionStorage.setItem('part', part.querySelector('p').textContent);
+        window.location.href = "/parts";
+    });
+}

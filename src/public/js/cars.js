@@ -2,7 +2,6 @@ const brandSelect = document.getElementById('brand');
 const modelSelect = document.getElementById('model');
 const engineSelect = document.getElementById('engine');
 
-let car = null;
 let carIsSelected = false;
 
 
@@ -117,30 +116,11 @@ document.getElementById('select-car').addEventListener('click', () => {
     }
     else if (engineSelect.disabled === false && engineSelect.value !== "0" && engineSelect.value !== '')
     {
-        const parameter = { 
-            paramType: "selectCar",
-            param: engineSelect.options[engineSelect.selectedIndex].textContent   
-        };
-        fetch("api/cars", {
-            method: "POST",
-            body: JSON.stringify(parameter),
-            headers: {
-                "Content-Type": "application/json"
-            }
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data)
-                {
-                    car = data;
-                    document.getElementById('selected-car').style.display = "block";
-                    document.getElementById('select-car-text').textContent = "Auto bolo vybraté";
-                    carIsSelected = true;
-                }
-            })
-            .catch(err => {
-                console.error('Error fetching data', err);
-           })
+        const value = engineSelect.options[engineSelect.selectedIndex].text;
+        sessionStorage.setItem('engine', value);
+        document.getElementById('selected-car').style.display = "block";
+        document.getElementById('select-car-text').textContent = "Auto bolo vybraté";
+        carIsSelected = true;
     }
     else
     {
@@ -151,76 +131,19 @@ document.getElementById('select-car').addEventListener('click', () => {
 //////////////////////////////
 //// COMPONENT LISTENERS /////
 //////////////////////////////
-document.getElementById('engine-cat').addEventListener('click', () => {
-    if (!carIsSelected)
-    {
-        selectCarNotification();
-    }
-    else
-    {
-        sessionStorage.setItem('partCategory', 'Engine');
-        window.location.href = "/category";
-    }
-});
-
-document.getElementById('steering-cat').addEventListener('click', () => {
-    if (!carIsSelected)
-    {
-        selectCarNotification();
-    }
-    else
-    {
-        sessionStorage.setItem('partCategory', 'Steering');
-        window.location.href = "/category";
-    }
-});
-
-document.getElementById('brakes-cat').addEventListener('click', () => {
-    if (!carIsSelected)
-    {
-        selectCarNotification();
-    }
-    else
-    {
-        sessionStorage.setItem('partCategory', 'Brakes');
-        window.location.href = "/category";
-    }
-});
-
-document.getElementById('suspension-cat').addEventListener('click', () => {
-    if (!carIsSelected)
-    {
-        selectCarNotification();
-    }
-    else
-    {
-        sessionStorage.setItem('partCategory', 'Suspension');
-        window.location.href = "/category";
-    }
-});
-
-document.getElementById('clutch-cat').addEventListener('click', () => {
-    if (!carIsSelected)
-    {
-        selectCarNotification();
-    }
-    else
-    {
-        sessionStorage.setItem('partCategory', 'Clutch');
-        window.location.href = "/category";
-    }
-});
-
-document.getElementById('exhaust-cat').addEventListener('click', () => {
-    if (!carIsSelected)
-    {
-        selectCarNotification();
-    }
-    else
-    {
-        sessionStorage.setItem('partCategory', 'Exhaust');
-        window.location.href = "/category";
-    }
+const categoryCards = document.querySelectorAll('.category-card');
+categoryCards.forEach(category => {
+    category.addEventListener('click', () => {
+        if (!carIsSelected)
+        {
+            selectCarNotification();
+        }
+        else
+        {
+            sessionStorage.setItem('partCategory', category.querySelector('img').alt);
+            window.location.href = "/category";
+        }
+    });
 });
 
 /////////////////////////
@@ -240,25 +163,25 @@ function clearNotification()
 function selectCarNotification()
 {
     showNotification();
-    document.getElementById('select-car-text').textContent = "Najskôr vyberte auto"
+    document.getElementById('select-car-text').textContent = "Vyberte si auto"
 }
 
 function selectBrandNotification()
 {
     showNotification();
-    document.getElementById('select-car-text').textContent = "Najskôr vyberte značku auta"
+    document.getElementById('select-car-text').textContent = "Vyberte si značku auta"
 }
 
 function selectModelNotification()
 {
     showNotification();
-    document.getElementById('select-car-text').textContent = "Najskôr si vyberte model auta"
+    document.getElementById('select-car-text').textContent = "Vyberte si model auta"
 }
 
 function selectEngineNotification()
 {
     showNotification();
-    document.getElementById('select-car-text').textContent = "Najskôr si vyberte motorizáciu"
+    document.getElementById('select-car-text').textContent = "Vyberte si motorizáciu"
 }
     
 
