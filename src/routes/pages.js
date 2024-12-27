@@ -3,20 +3,12 @@ const loggedIn = require('../controllers/loggedIn');
 const logout = require('../controllers/logout');
 const router = express.Router();
 
-router.use(loggedIn);
 
 router.get('/', (req, res) => {
-    if (req.user)
-    {
-        res.render("index", {status: "loggedIn", user: req.user});
-    }
-    else
-    {
-        res.render("index", {status: "loggedOut", user: "non"});
-    }
+    res.sendFile("index.html", { root: "./src/views" });
 });
   
-router.get('/login', (req, res) => {
+router.get('/login', loggedIn, (req, res) => {
     if (req.user)
     {
         res.redirect('/profile');
@@ -28,7 +20,7 @@ router.get('/login', (req, res) => {
 });
 
 
-router.get('/register', (req, res) => {
+router.get('/register', loggedIn, (req, res) => {
     if (req.user)
     {
         res.redirect('/profile');
@@ -39,7 +31,7 @@ router.get('/register', (req, res) => {
     }
 });
 
-router.get('/profile', (req, res) => {
+router.get('/profile', loggedIn, (req, res) => {
     if (req.user) 
     {
         res.render("profile", { user: req.user });
@@ -50,7 +42,7 @@ router.get('/profile', (req, res) => {
     }
 })
 
-router.get('/changepassword', (req, res) => {
+router.get('/changepassword', loggedIn, (req, res) => {
     if (req.user)
     {
         res.sendFile("changepassword.html", { root: "./src/views", user: req.user });
@@ -61,7 +53,7 @@ router.get('/changepassword', (req, res) => {
     }
 })
 
-router.get('/deleteaccount', (req, res) => {
+router.get('/deleteaccount', loggedIn, (req, res) => {
     if (req.user)
     {
         res.sendFile("deleteaccount.html", { root: "./src/views", user: req.user });
@@ -76,6 +68,11 @@ router.get('/category', (req, res) => {
     res.sendFile("category.html", { root: "./src/views" });
 });
 
+router.get('/parts', (req, res) => {
+    res.sendFile("parts.html", { root: "./src/views" });
+});
+
 router.get("/logout", logout);
+
 
 module.exports = router;

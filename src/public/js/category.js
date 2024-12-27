@@ -1,32 +1,51 @@
-document.addEventListener('DOMContentLoaded', () => {
-    if (!sessionStorage.getItem('partCategory'))
+import { fetchData } from "./fetchData.js";
+
+
+let subcatCount = 0;
+
+async function loadContent()
+{
+    const req = { category: sessionStorage.getItem('partCategory') };
+    const subcats = await fetchData(req, "category");
+
+    subcategories.innerHTML = "";
+    for (const subcat of subcats)
+    {
+        subcatCount++;
+
+        subcategories.innerHTML += `
+            <div class="col">
+                <div class="part-card" id=${subcatCount.toString()}>
+                    <img class="img-fluid" src=${subcat.image} alt=${subcat.partname}>
+                    <p class="text-danger fw-bold mt-3">${subcat.partname}</p>
+                </div>
+            </div>
+        `;
+    }
+}
+
+function setupListeners()
+{
+    for (let i = 1; i <= subcatCount; i++)
+    {
+        const subcat = document.getElementById(i.toString());
+
+        subcat.addEventListener('click', () => {
+            sessionStorage.setItem('part', subcat.querySelector('p').textContent);
+            sessionStorage.setItem('search', "engine");
+            window.location.href = "/parts";
+        });
+    }
+}
+
+document.addEventListener('DOMContentLoaded', async () => {
+    if (!sessionStorage.getItem('partCategory') || !sessionStorage.getItem('engine'))
     {
         window.location.href = '/';
     }
     else
     {
-        const part = { category: sessionStorage.getItem('partCategory') };
-        fetch("api/category", {
-            method: "POST",
-            body: JSON.stringify(part),
-            headers: {
-                "Content-Type": "application/json"
-            }
-        })
-            .then(res => res.json())
-            .then(data => {
-                sessionStorage.removeItem('partCategory');
-
-                let index = 1;
-                data.forEach(part => {
-                    document.getElementById(index.toString()).querySelector('img').src = part.image;
-                    document.getElementById(index.toString()).querySelector('img').alt = part.partname;
-                    document.getElementById(index.toString()).querySelector('p').textContent = part.partname;
-                    index++;
-                });
-            })
-            .catch(err => {
-                console.error('Error fetching data', err);
-            })
+        await loadContent();            //await kvôli subcatCount
+        setupListeners();
     }
 });

@@ -1,38 +1,16 @@
-form.addEventListener("submit", () => {
-    if (!email.value || !password.value)
+import { fetchData } from "./fetchData.js";
+import { checkLogin, response } from "./validators.js";
+
+form.addEventListener("submit", async () => {
+    if (checkLogin(email.value, password.value))
     {
-        error.style.display = "block";
-        error.innerText = "Vyplňte všetky polia";
-        return;
-    }
-    else
-    {
-        const login = {
+        const req = {
             email: email.value,
             password: password.value
         }
-        fetch("/api/login", {
-            method: "POST",
-            body: JSON.stringify(login),
-            headers: {
-                "Content-Type": "application/json"
-            }
-        }).then(res => res.json())
-            .then(data => {
-                if (data.status == "error") {
-                    success.style.display = "none"
-                    error.style.display = "block"
-                    error.innerText = data.error
-                }
-                else {
-                    error.style.display = "none"
-                    success.style.display = "block"
-                    success.innerText = data.success
 
-                    setTimeout(() => {
-                        window.location.href = data.redirectUrl || "/";
-                    }, 500);
-                }
-            })
+        const res = await fetchData(req, "login");
+
+        response(res, "/")
     }
 });

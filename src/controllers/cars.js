@@ -1,68 +1,54 @@
 const database = require('../routes/database-config');
 
 
-const cars = async (req, res) => {
-    if (req.body.paramType === "paramType")
-    {
-        return res.json(await findParamTypeInDatabase(req.body.param));
-    }
-    else if (req.body.paramType === "selectCar")
-    {
-        return res.json(await selectCar(req.body.param));
-    }
-    else
-    {
-        return res.json(await findParamInDatabase(req.body.paramType, req.body.param, req.body.searchParam));
-    }
-}
-
-
-function findParamTypeInDatabase(paramType)
-{
-    return new Promise((resolve, reject) => {
-        database.query(`SELECT DISTINCT ${paramType} FROM cars`, (err, res) => {
-            if (err)
-            {
-                return reject(err);
-            }
-            else 
-            {
-                resolve(res);
-            }
-        });
+const brands = async (req, res) => {
+    database.query(`SELECT DISTINCT brand FROM cars`, (err, result) => {
+        if (err)
+        {
+            return res.status(500).json({ error: "Chyba na strane servera" });
+        }
+        else 
+        {
+            return res.json(result);
+        }
     });
 }
 
-function findParamInDatabase(paramType, param, searchParam)
-{
-    return new Promise((resolve, reject) => {
-        database.query(`SELECT DISTINCT ${paramType} FROM cars WHERE ${param} = ?`, [searchParam], (err, res) => {
-            if (err)
-            {
-                return reject(err);
-            }
-            else 
-            {
-                resolve(res);
-            }
-        });
+
+const models = async (req, res) => {
+    const brand = req.body.brand;
+
+    database.query(`SELECT DISTINCT model FROM cars WHERE brand = ?`, [brand], (err, result) => {
+        if (err)
+        {
+            return res.status(500).json({ error: "Chyba na strane servera" });
+        }
+        else 
+        {
+            return res.json(result);
+        }
     });
 }
 
-function selectCar(param)
-{
-    return new Promise((resolve, reject) => {
-        database.query(`SELECT * FROM cars WHERE engine = ?`, [param], (err, res) => {
-            if (err)
-            {
-                return reject(err);
-            }
-            else 
-            {
-                resolve(res);
-            }
-        });
+const engines = async (req, res) => {
+    const brand = req.body.brand;
+    const model = req.body.model;
+
+    database.query(`SELECT DISTINCT engine FROM cars WHERE brand = ? AND model = ?`, [brand, model], (err, result) => {
+        if (err)
+        {
+            return res.status(500).json({ error: "Chyba na strane servera" });
+        }
+        else 
+        {
+            return res.json(result);
+        }
     });
 }
 
-module.exports = cars;
+
+module.exports = {
+    brands,
+    models,
+    engines
+};
