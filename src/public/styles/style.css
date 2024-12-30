@@ -7,7 +7,7 @@ html, body {
 body {
     display: flex;
     flex-direction: column;
-    background-image: url('/images/background.png');
+    background-image: url('/views/images/background.png');
     background-size: cover;
     background-attachment: fixed;
 }
@@ -199,4 +199,77 @@ input.form-control {
     background-color: #b71c1c;
     transform: scale(1.1);
 }
+
+.rating-container {
+    text-align: center;
+}
+
+
+/*////////////////////////PRUDCT///////////////////////////////////////////////////////////*/
+
+
+.product-info-container,
+.ratings-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 2px solid red;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.product-info-container {
+    gap: 20px;
+}
+
+.rating-info,
+.product-info-container {
+    display: flex;
+    justify-content: left;
+    align-items: flex-start;
+}
+
+.price {
+    font-weight: bold;
+    color: red;
+    font-size: 1.2rem;
+}
+
+.availability {
+    font-size: 1rem;
+    color: #007bff;
+}
+
+.rating-summary {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.rating-percentage {
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.rating-avg {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-top: 5px;
+}
+
+.rating-stars {
+    padding: 10px;
+}
+
+.rating-graph {
+    display: flex;
+    flex-direction: column;
+    gap: 29px;
+    padding: 20px;
+}
+
 

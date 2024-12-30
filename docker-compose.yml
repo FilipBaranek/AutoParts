@@ -27,6 +27,7 @@ services:
       MYSQL_ROOT_PASSWORD: rootpassword
       MYSQL_DATABASE: autopartsdb
       MYSQL_PASSWORD: rootpassword
+      MYSQL_INITDB_SKIP_TZINFO: 1
     volumes:
       - ./src/sql/autopartsdb.sql:/docker-entrypoint-initdb.d/autopartsdb.sql
     ports:
