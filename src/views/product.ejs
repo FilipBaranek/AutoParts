@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AutoParts Hub</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <link href="/public/styles/style.css" rel="stylesheet">
+</head>
+<body>
+
+    <div id="navbarContainer"></div>
+
+
+    <main class="container my-5 flex-grow-1" id="main" data-product="<%= JSON.stringify(product) %>">
+        <div class="alert alert-danger" role="alert" id="failure" style="display: none;"></div>
+        <div class="product-info-container">
+            <div class="product-image">
+                <img id="productImage" alt="Obrázok produktu">
+            </div>
+            <div class="product-details">
+                <h2 id="productName" class="product"></h2>
+                <p id="description"></p>
+                <p id="price" class="price"></p>
+                <p id="availability" class="availability"></p>
+                <button id="addToCartButton" class="btn btn-danger">Pridať do košíka</button>
+            </div>
+        </div>
+        <div class="ratings-container">
+            <h3>Hodnotenie produktu</h3>
+            <div class="rating-container-content">
+                <div class="rating-info">
+                    <div class="rating-summary">
+                        <div style="position: relative; margin-left: 8px; width: 150px; height: 30px; overflow: hidden;">
+                            <img src="/views/images/rating/rating-empty.png" alt="Rating" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain;">
+                            <img id="ratingImage" src="/views/images/rating/rating-full.png" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain;">
+                        </div>
+                        <p id="ratingPercentage" class="rating-percentage"></p>
+                        <p id="ratingCount" class="rating-avg"></p>
+                    </div>
+                    <div class="rating-stars">
+                        <p id="star1Percentage">5⭐&nbsp;0%</p> 
+                        <p id="star2Percentage">4⭐&nbsp;0%</p>
+                        <p id="star3Percentage">3⭐&nbsp;0%</p> 
+                        <p id="star4Percentage">2⭐&nbsp;0%</p>
+                        <p id="star5Percentage">1⭐&nbsp;0%</p>   
+                    </div>
+                    <div class="rating-graph">
+                        <img id="starGraph1" src="/views/images/rating/ratingBar.png">
+                        <img id="starGraph2" src="/views/images/rating/ratingBar.png">
+                        <img id="starGraph3" src="/views/images/rating/ratingBar.png">
+                        <img id="starGraph4" src="/views/images/rating/ratingBar.png">
+                        <img id="starGraph5" src="/views/images/rating/ratingBar.png">
+                    </div>
+                </div>
+                <div class="users-rating-container">
+                    <div class="users-rating">
+                        <% if (user) { %>
+                            Ohodnoťte produkt vy
+                        <% } else {%>
+                            <p>Prihláste sa<br>a ohodnoťte produkt aj vy</p>
+                        <% } %>      
+                    </div>
+                    <% if (user) { %>
+                        <div class="users-stars-container">
+                            <input type="radio" name="rating" id="star1">
+                            <label for="star1" class="fa fa-star"></label>
+                            <input type="radio" name="rating" id="star2">
+                            <label for="star2" class="fa fa-star"></label>
+                            <input type="radio" name="rating" id="star3">
+                            <label for="star3" class="fa fa-star"></label>
+                            <input type="radio" name="rating" id="star4">
+                            <label for="star4" class="fa fa-star"></label>
+                            <input type="radio" name="rating" id="star5">
+                            <label for="star5" class="fa fa-star"></label>
+                        </div>
+                        <button id="sendButton" class="btn btn-danger" style="display: none;">Odoslať hodnotenie</button>
+                        <button id="cancelButton" class="btn btn-danger" style="display: none;">Zrušiť hodnotenie</button>
+                        <div class="alert alert-success" role="alert" id="alert" style="display: none;">Hodnotenie bolo zaznamenané</div> 
+                    <% } %>        
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+
+    <div id="footerContainer"></div>
+
+
+    <script src="/public/js/middlewares/includes.js"></script>
+    <script type="module" src="/public/js/product/main.js"></script>
+</body>
+</html>
