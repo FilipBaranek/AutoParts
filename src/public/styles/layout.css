@@ -1,0 +1,17 @@
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-image: url('/views/images/background.png');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+main {
+    flex: 1;
+}

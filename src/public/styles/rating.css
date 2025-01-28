@@ -1,0 +1,29 @@
+
+.rating-container {
+    display: inline-block;
+    text-align: center;
+}
+
+.rating-div {
+    position: relative;
+    width: 150px;
+    height: 30px;
+    overflow: hidden;
+}
+
+.empty-img, .filled-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.empty-img {
+    z-index: 1;
+}
+
+.filled-img {
+    z-index: 2;
+}

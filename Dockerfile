@@ -1,7 +1,5 @@
 FROM node:18
 
-RUN apt-get update && apt-get install -y iputils-ping && apt-get clean
-
 WORKDIR /app
 
 COPY package*.json ./

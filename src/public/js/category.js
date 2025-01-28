@@ -1,32 +1,35 @@
-document.addEventListener('DOMContentLoaded', () => {
-    if (!sessionStorage.getItem('partCategory'))
-    {
-        window.location.href = '/';
-    }
-    else
-    {
-        const part = { category: sessionStorage.getItem('partCategory') };
-        fetch("api/category", {
-            method: "POST",
-            body: JSON.stringify(part),
-            headers: {
-                "Content-Type": "application/json"
-            }
-        })
-            .then(res => res.json())
-            .then(data => {
-                sessionStorage.removeItem('partCategory');
+import { errorMessage } from "./middlewares/error.js";
 
-                let index = 1;
-                data.forEach(part => {
-                    document.getElementById(index.toString()).querySelector('img').src = part.image;
-                    document.getElementById(index.toString()).querySelector('img').alt = part.partname;
-                    document.getElementById(index.toString()).querySelector('p').textContent = part.partname;
-                    index++;
-                });
-            })
-            .catch(err => {
-                console.error('Error fetching data', err);
-            })
+const subcatLength = subcategories.getAttribute('data-length');
+
+function getUrl(categoryName)
+{
+    const urlParams = new URLSearchParams(window.location.search);
+    const catName = categoryName;
+    const engine = urlParams.get('engine');
+
+    return `/parts?search=car&subcat=${catName}&engine=${engine}`;
+}
+
+function setupListeners()
+{
+    for (let i = 1; i <= subcatLength; i++)
+    {
+        const subcat = document.getElementById(i.toString());
+        
+        subcat.addEventListener('click', () => {
+            window.location.href = getUrl(subcat.querySelector('p').textContent);
+        });
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => { 
+    try
+    {
+        setupListeners();
+    }
+    catch (err)
+    {
+        errorMessage();
     }
 });
