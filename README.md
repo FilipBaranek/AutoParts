@@ -11,7 +11,7 @@ V aktuálnej verzii nie je možné diely nijakým spôsobom reálne objednať a 
 - E-Shop je semestrálny fullstack projekt naprogramovaný v jazyku JavaScript
 - využitie Docker-u (Image pre webovú aplikáciu, databázu MySQL, a phpmyadmin)
 - webová aplikácia využíva na backende 3 layer structure (Controller, Service, Model)
-- databáze MySQL je inicializuovaný port 3306
+- databáze MySQL je inicializovaný port 3306
 - phpmyadmin stránke je inicializovaný port 80
 - hlavnej aplikácii je inicializuovaný port 3000
 
