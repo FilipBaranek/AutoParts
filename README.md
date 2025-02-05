@@ -36,6 +36,6 @@ V aktuálnej verzii nie je možné diely nijakým spôsobom reálne objednať a 
 6. "Postaviť projekt" pomocou príkazu: docker-compose build
 7. Po ukončení build procesu, spustiť aplikáciu pomocou príkazu: docker-compose up
 
-## URL adresy po inštalácii
+## URL adresy po inštalácii a spustení
 - hlavná aplikácia: localhost:3000/
 - phpmyadmin: localhost:80/
