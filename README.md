@@ -11,6 +11,9 @@ V aktuálnej verzii nie je možné diely nijakým spôsobom reálne objednať a 
 - E-Shop je semestrálny fullstack projekt naprogramovaný v jazyku JavaScript
 - využitie Docker-u (Image pre webovú aplikáciu, databázu MySQL, a phpmyadmin)
 - webová aplikácia využíva na backende 3 layer structure (Controller, Service, Model)
+- databáze MySQL je inicializuovaný port 3306
+- phpmyadmin stránke je inicializovaný port 80
+- hlavnej aplikácii je inicializuovaný port 3000
 
 ## Front page
 ![frontpage](https://github.com/user-attachments/assets/36fd4e98-b919-4d96-b7c1-828f95dcb75a)
@@ -32,3 +35,7 @@ V aktuálnej verzii nie je možné diely nijakým spôsobom reálne objednať a 
 5. Dostať sa do adresára kde sa nachádza Dockerfile pomocou CLI
 6. "Postaviť projekt" pomocou príkazu: docker-compose build
 7. Po ukončení build procesu, spustiť aplikáciu pomocou príkazu: docker-compose up
+
+## URL adresy po inštalácii
+- hlavná aplikácia: localhost:3000/
+- phpmyadmin: localhost:80/
