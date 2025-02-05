@@ -59,6 +59,8 @@ export function setupEditButtonsListener(code, usersData, buttonsCount)
         const button = document.getElementById('editReviewButton' + i);
 
         button.addEventListener('click', async () => {
+            window.location.hash = "reviewText";
+
             reviewText.value = button.dataset.review;
             reviewId = button.dataset.id;
             
