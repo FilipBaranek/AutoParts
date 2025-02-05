@@ -9,7 +9,7 @@ V aktuálnej verzii nie je možné diely nijakým spôsobom reálne objednať a 
 
 ## Technické informácie
 - E-Shop je semestrálny fullstack projekt naprogramovaný v jazyku JavaScript
-- využitie Docker-u (Image pre webovú aplikáciu, databázu MYSQL, a phpmyadmin)
+- využitie Docker-u (Image pre webovú aplikáciu, databázu MySQL, a phpmyadmin)
 - webová aplikácia využíva na backende 3 layer structure (Controller, Service, Model)
 
 ## Front page
