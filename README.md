@@ -5,10 +5,8 @@
 
 ## Aktuálna verzia
 Je možné vyhľadať diely k dostupným značkám a modelom aut, zanechať/prečítať si hodnotenia a recenzie.
-V aktuálnej verzii nie je možné diely nijakým spôsobom reálne objednať a ani pridať do košíka.
 
 ## Technické informácie
-- E-Shop je semestrálny fullstack projekt naprogramovaný v jazyku JavaScript
 - využitie Docker-u (Image pre webovú aplikáciu, databázu MySQL, a phpmyadmin)
 - webová aplikácia využíva na backende štruktúru Controller, Service, Model
 - databáze MySQL je inicializovaný port 3306
